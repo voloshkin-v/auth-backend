@@ -11,6 +11,10 @@ const getUserById = async (req, res) => {
 
   const user = await userService.getUserById(id);
 
+  if (!user) {
+    throw new Error('not found');
+  }
+
   res.status(200).json(user);
 };
 
