@@ -1,4 +1,5 @@
 const User = require('~/models/user');
+const { hashPasword } = require('~/utils/password');
 
 const getUsers = async () => {
   const users = await User.find();
@@ -15,20 +16,22 @@ const getUserById = async (id) => {
 };
 
 const getUserByEmail = async (email) => {
-  return await User.findOne({ email }).exec();
+  return await User.findOne({ email }).select('+password').exec();
 };
 
-const createUser = async (firstName, lastName, email, password) => {
+const createUser = async (firstName, lastName, email, password, role) => {
   const user = await getUserByEmail(email);
 
   if (user) {
     throw new Error('USER ALREADY EXIST!'); // TODO
   }
 
-  return await User.create({ firstName, lastName, email, password });
+  const hashedPassword = await hashPasword(password);
+
+  return await User.create({ firstName, lastName, email, password: hashedPassword, role }).exec();
 };
 
-const updateUser = (id) => {};
+const updateUser = () => {}; // TODO
 
 const deleteUser = async (id) => {
   return await User.findByIdAndDelete(id).exec();

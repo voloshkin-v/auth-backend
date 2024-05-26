@@ -8,6 +8,10 @@ const initialization = (app) => {
 
   app.use('/', router);
 
+  app.use((req, res, next) => {
+    next(new Error('not found route'));
+  });
+
   app.use(errorMiddleware);
 };
 
