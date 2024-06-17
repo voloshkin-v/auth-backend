@@ -28,7 +28,7 @@ const createUser = async (firstName, lastName, email, password, role) => {
 
   const hashedPassword = await hashPasword(password);
 
-  return await User.create({ firstName, lastName, email, password: hashedPassword, role }).exec();
+  return await User.create({ firstName, lastName, email, password: hashedPassword, role });
 };
 
 const updateUser = () => {}; // TODO

@@ -1,8 +1,12 @@
 const errorMiddleware = (err, req, res, next) => {
-  console.log('Error middleware!', err);
+  const status = 500;
+  const code = 'CODE';
+  const message = err.message;
 
-  res.json({
-    status: 'error!',
+  res.status(status).json({
+    status,
+    code,
+    message,
   });
 };
 
