@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-
 const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
@@ -17,6 +16,19 @@ const generateTokens = (payload) => {
   };
 };
 
+const verifyToken = (token, secretKey) => {
+  try {
+    return jwt.verify(token, secretKey);
+  } catch (e) {
+    return null;
+  }
+};
+
+const verifyAccessToken = (token) => {
+  return verifyToken(token, ACCESS_TOKEN_SECRET);
+};
+
 module.exports = {
   generateTokens,
+  verifyAccessToken,
 };

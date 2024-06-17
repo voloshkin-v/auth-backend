@@ -4,6 +4,7 @@ const errorMiddleware = (err, req, res, next) => {
   const message = err.message;
 
   res.status(status).json({
+    err,
     status,
     code,
     message,
