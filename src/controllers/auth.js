@@ -1,4 +1,8 @@
 const authService = require('~/services/auth');
+const {
+  tokens: { REFRESH_TOKEN },
+  refreshTokenExpiresInMs,
+} = require('~/constants');
 
 const signUp = async (req, res) => {
   const { firstName, lastName, email, password } = req.body;
@@ -13,6 +17,7 @@ const login = async (req, res) => {
 
   const { accessToken, refreshToken } = await authService.login(email, password);
 
+  res.cookie(REFRESH_TOKEN, refreshToken, { httpOnly: true, maxAge: refreshTokenExpiresInMs });
   res.status(200).json({ accessToken });
 };
 

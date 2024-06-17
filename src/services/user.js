@@ -19,16 +19,16 @@ const getUserByEmail = async (email) => {
   return await User.findOne({ email }).select('+password').exec();
 };
 
-const createUser = async (firstName, lastName, email, password, role) => {
+const createUser = async (firstName, lastName, email, password) => {
   const user = await getUserByEmail(email);
 
   if (user) {
-    throw new Error('USER ALREADY EXIST!'); // TODO
+    throw new Error('user already exists');
   }
 
   const hashedPassword = await hashPasword(password);
 
-  return await User.create({ firstName, lastName, email, password: hashedPassword, role });
+  return await User.create({ firstName, lastName, email, password: hashedPassword });
 };
 
 const updateUser = () => {}; // TODO
