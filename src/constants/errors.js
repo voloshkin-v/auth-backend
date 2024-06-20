@@ -1,7 +1,7 @@
 const errors = {
   USER_NOT_FOUND: {
     code: 'USER_NOT_FOUND',
-    message: 'User was not found',
+    message: 'The user with given email does not exist',
   },
   INVALID_CREDENTIALS: {
     code: 'INVALID_CREDENTIALS',
@@ -13,7 +13,7 @@ const errors = {
   },
   INVALID_DOCUMENT_ID: {
     code: 'INVALID_DOCUMENT_ID',
-    message: 'ID is not valid',
+    message: 'Document ID is not valid',
   },
 };
 
