@@ -1,5 +1,5 @@
 const tokenService = require('~/services/token');
-const extractTokenFromHeaders = require('~/utils/token');
+const { extractTokenFromHeaders } = require('~/utils/token');
 
 const verifyAuth = (req, res, next) => {
   const token = extractTokenFromHeaders(req);

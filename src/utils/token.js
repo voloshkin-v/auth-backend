@@ -3,4 +3,4 @@ const extractTokenFromHeaders = (req) => {
   return type === 'Bearer' ? token : undefined;
 };
 
-module.exports = extractTokenFromHeaders;
+module.exports = { extractTokenFromHeaders };

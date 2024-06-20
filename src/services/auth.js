@@ -27,6 +27,10 @@ const login = async (email, password) => {
     throw createError(401, INVALID_CREDENTIALS);
   }
 
+  // if (!user.emailVerified) {
+  //   throw createError(401);
+  // }
+
   const tokens = tokenService.generateTokens({ id: user.id });
 
   return tokens;

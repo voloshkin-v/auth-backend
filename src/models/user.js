@@ -6,14 +6,7 @@ const userSchema = new mongoose.Schema(
     lastName: String,
     email: { type: String, unique: true, required: true },
     password: { type: String, required: true, select: false },
-    role: {
-      type: [String],
-      enum: {
-        values: ['role-1', 'role-2'],
-        message: 'asdasd',
-      },
-      required: true,
-    },
+    emailVerified: { type: Boolean, default: false },
   },
   { timestamps: true },
 );

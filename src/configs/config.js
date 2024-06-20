@@ -1,4 +1,5 @@
 const config = {
+  CLIENT_URL: process.env.CLIENT_URL,
   SERVER_PORT: process.env.SERVER_PORT,
   MONGODB_URL: process.env.MONGODB_URL,
   ACCESS_TOKEN_SECRET: process.env.ACCESS_TOKEN_SECRET,

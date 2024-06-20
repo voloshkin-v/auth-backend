@@ -11,6 +11,10 @@ const errors = {
     code: 'NOT_FOUND',
     message: 'Requested URL was not found',
   },
+  INVALID_DOCUMENT_ID: {
+    code: 'INVALID_DOCUMENT_ID',
+    message: 'ID is not valid',
+  },
 };
 
 module.exports = {
